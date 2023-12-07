@@ -1,0 +1,8 @@
+C:\Users\anush\OneDrive\Desktop\OVN_Anusha_Learnings\Amazon\Question1\AmazonQuestion1Solution\bin\Debug\AmazonQuestion1Solution.exe.config
+C:\Users\anush\OneDrive\Desktop\OVN_Anusha_Learnings\Amazon\Question1\AmazonQuestion1Solution\bin\Debug\AmazonQuestion1Solution.exe
+C:\Users\anush\OneDrive\Desktop\OVN_Anusha_Learnings\Amazon\Question1\AmazonQuestion1Solution\bin\Debug\AmazonQuestion1Solution.pdb
+C:\Users\anush\OneDrive\Desktop\OVN_Anusha_Learnings\Amazon\Question1\AmazonQuestion1Solution\obj\Debug\AmazonQuestion1Solution.csproj.AssemblyReference.cache
+C:\Users\anush\OneDrive\Desktop\OVN_Anusha_Learnings\Amazon\Question1\AmazonQuestion1Solution\obj\Debug\AmazonQuestion1Solution.csproj.SuggestedBindingRedirects.cache
+C:\Users\anush\OneDrive\Desktop\OVN_Anusha_Learnings\Amazon\Question1\AmazonQuestion1Solution\obj\Debug\AmazonQuestion1Solution.csproj.CoreCompileInputs.cache
+C:\Users\anush\OneDrive\Desktop\OVN_Anusha_Learnings\Amazon\Question1\AmazonQuestion1Solution\obj\Debug\AmazonQuestion1Solution.exe
+C:\Users\anush\OneDrive\Desktop\OVN_Anusha_Learnings\Amazon\Question1\AmazonQuestion1Solution\obj\Debug\AmazonQuestion1Solution.pdb
