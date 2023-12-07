@@ -5,160 +5,75 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AmazonQuestion1Solution
+namespace AmazonQuestion2
 {
-    internal class Program
+    class Result
     {
-        public static List<int> getTrucksForItems(List<int> trucks, List<int> items)
+        /*
+         * Complete the 'countMaximumProfitableGroups' function below.
+         *
+         * The function is expected to return a LONG_INTEGER.
+         * The function accepts INTEGER_ARRAY stockPrice as parameter.
+         */
+
+        public static long countMaximumProfitableGroups(List<int> stockPrice)
         {
-            //trucks={4,5,7,2} items={1,2,5} result list={3,0,2}
-            Dictionary<int,int> trucksWithIndexCapacity = new Dictionary<int,int>();
+            long count = 0;
+            List<List<int>> subArrayList=new List<List<int>>();
 
-            for(int i=0;i<trucks.Count;i++)
+            for (int i = 0; i < stockPrice.Count; i++)
             {
-                trucksWithIndexCapacity.Add(i, trucks[i]);
-            }
-            trucksWithIndexCapacity = trucksWithIndexCapacity.OrderBy(x => x.Value)
-                                      .ToDictionary(x => x.Key, x => x.Value);
-
-            for(int i=0;i<items.Count;i++)
-            {
-                foreach(KeyValuePair<int,int> pair in trucksWithIndexCapacity)
+                List<int> subList = new List<int>();
+                for (int j=i;j< stockPrice.Count;j++)
                 {
-                    int index=pair.Key;
-
-                    if (pair.Value > items[i])
-                    {
-                        trucksWithIndexCapacity[index] = pair.Value - items[i];
-                        break;
-                    }    
-
+                    subList.Add(stockPrice[j]);
+                    subArrayList.Add(new List<int>(subList));
                 }
             }
 
-            List<int> result = new List<int>();
-
-            foreach (KeyValuePair<int,int> pair in trucksWithIndexCapacity)
+            count = subArrayList.Count;
+            foreach (List<int> list in subArrayList)
             {
-                if (pair.Value != trucks[pair.Key])
+                if(list.Count > 2)
                 {
-                    result.Add(pair.Key); ;
-                     
+                    int maxEle=Math.Max(list.ElementAt(0), list.ElementAt(list.Count-1));
+                    for(int i=1;i<list.Count-1;i++) 
+                    { 
+                        if(list.ElementAt(i)>maxEle)
+                        {
+                            count--;break;
+                        }
+                    }
                 }
-                    
             }
+            return count;
 
-
-            return result;
         }
+
+    }
+
+    class Solution
+    {
         public static void Main(string[] args)
         {
             //TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
-            //Console.WriteLine("Enter trucksCount here:");//added by me
-            //int trucksCount = Convert.ToInt32(Console.ReadLine().Trim());
 
-            List<int> trucks = new List<int>() {4,5,7,2};
+            //int stockPriceCount = Convert.ToInt32(Console.ReadLine().Trim());
 
-            //Console.WriteLine("enter trucksitems capacity foreach truck for above trucksCount");//added by me
-            //for (int i = 0; i < trucksCount; i++)
+            List<int> stockPrice = new List<int>() { 3,1,3,5 };
+
+            //for (int i = 0; i < stockPriceCount; i++)
             //{
-            //    int trucksItem = Convert.ToInt32(Console.ReadLine().Trim());
-            //    trucks.Add(trucksItem);
+            //    int stockPriceItem = Convert.ToInt32(Console.ReadLine().Trim());
+            //    stockPrice.Add(stockPriceItem);
             //}
 
-            Console.WriteLine("enter itemsCount");
-            //int itemsCount = Convert.ToInt32(Console.ReadLine().Trim());
+            long result = Result.countMaximumProfitableGroups(stockPrice);
 
-
-            List<int> items = new List<int>() {1,2,5 };
-
-            //Console.WriteLine("enter itemsItem as per above itemsCount");
-            //for (int i = 0; i < itemsCount; i++)
-            //{
-            //    int itemsItem = Convert.ToInt32(Console.ReadLine().Trim());
-            //    items.Add(itemsItem);
-            //}
-
-            List<int> result = Program.getTrucksForItems(trucks, items);
-
-            //textWriter.WriteLine(String.Join("\n", result));
+            Console.WriteLine(result);
 
             //textWriter.Flush();
             //textWriter.Close();
-            Console.WriteLine(String.Join("\n", result)); ; 
         }
     }
 }
-///*
-// Question1 :
-//using System.CodeDom.Compiler;
-//using System.Collections.Generic;
-//using System.Collections;
-//using System.ComponentModel;
-//using System.Diagnostics.CodeAnalysis;
-//using System.Globalization;
-//using System.IO;
-//using System.Linq;
-//using System.Reflection;
-//using System.Runtime.Serialization;
-//using System.Text.RegularExpressions;
-//using System.Text;
-//using System;
-
-
-//class Result
-//{
-
-//    /*
-//     * Complete the 'getTrucksForItems' function below.
-//     *
-//     * The function is expected to return an INTEGER_ARRAY.
-//     * The function accepts following parameters:
-//     *  1. INTEGER_ARRAY trucks
-//     *  2. INTEGER_ARRAY items
-//     */
-
-//public static List<int> getTrucksForItems(List<int> trucks, List<int> items)
-//{
-
-//}
-
-//}
-//class Solution
-//{
-//    public static void Main(string[] args)
-//    {
-//        TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
-
-//        int trucksCount = Convert.ToInt32(Console.ReadLine().Trim());
-
-//        List<int> trucks = new List<int>();
-
-//        for (int i = 0; i < trucksCount; i++)
-//        {
-//            int trucksItem = Convert.ToInt32(Console.ReadLine().Trim());
-//            trucks.Add(trucksItem);
-//        }
-
-//        int itemsCount = Convert.ToInt32(Console.ReadLine().Trim());
-
-//        List<int> items = new List<int>();
-
-//        for (int i = 0; i < itemsCount; i++)
-//        {
-//            int itemsItem = Convert.ToInt32(Console.ReadLine().Trim());
-//            items.Add(itemsItem);
-//        }
-
-//        List<int> result = Result.getTrucksForItems(trucks, items);
-
-//        textWriter.WriteLine(String.Join("\n", result));
-
-//        textWriter.Flush();
-//        textWriter.Close();
-//    }
-//}
-
-
-
-
